@@ -45,5 +45,8 @@ def esNIF(String nif) {
     } 
     false
 }
+def noEsNIF(String nif) {
+    !esNIF(nif)
+}
 def nif = javax.swing.JOptionPane.showInputDialog("NIF:")
 println "$nif es un NIF ${esNIF(nif) ? 'valido' : 'invalido'}."
