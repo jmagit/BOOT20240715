@@ -2,6 +2,7 @@
 class Kk implements Comparable {
     void cotilla() {
         String cad;
+        Optional.ofNullable
         //cad.repl
         // var cad = "";
         // cad.replace();
