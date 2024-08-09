@@ -1,5 +1,7 @@
 import groovy.sql.Sql
 
+//def url = 'jdbc:oracle:thin:@frparccsw:1521:FREE'
+
 def url = 'jdbc:oracle:thin:@localhost:1521:xe'
 def user = 'alumno'
 def password = 'alumno'
@@ -20,4 +22,17 @@ sql.query('''
     println "${++rowNum} $id $first $last"
   }
 }
+println '------------------------------------------------'
+sql.eachRow('''
+  SELECT *
+  FROM   EMPLOYEES
+  ORDER BY EMPLOYEE_ID
+  FETCH NEXT 10 ROWS ONLY
+''') { row ->
+    def id = row.getString(1)
+    def first = row.getString('first_name')
+    def last = row.getString('last_name')
+    println "$id $first $last"
+}
+
 sql.close()

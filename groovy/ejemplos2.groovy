@@ -128,3 +128,16 @@ fn('a','b')
 ICompararLambda comp = (a, b) -> a.compareTo(b) > 0;
 //comp.compara('a','b')
 
+enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY,
+    THURSDAY, FRIDAY, SATURDAY
+}
+enum DayOfWork {
+   MONDAY, TUESDAY, WEDNESDAY,
+    THURSDAY, FRIDAY
+}
+
+Day d1 = Day.FRIDAY
+assert d1 ==  DayOfWork.FRIDAY
+d1 =  DayOfWork.FRIDAY
+
