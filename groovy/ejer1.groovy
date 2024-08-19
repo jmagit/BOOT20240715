@@ -111,6 +111,23 @@ int mcm(int a, int b) {
 // Juego de piedra, papel, tijera.
 //
 
+def jugadas = ['piedra', 'papel', 'tijera']
+def ganadoras = [piedra: 'tijera', papel: 'piedra', tijera: 'papel']
+def rnd = new Random() 
+def generado = jugadas[rnd.nextInt(3)]
+try {
+    def jugada = jugadas[(javax.swing.JOptionPane.showInputDialog("""Jugada:
+    1. Piedra
+    2. Papel
+    3. Tijera
+    """) as Integer) - 1]
+    if (jugada == null) throw new Exception('Jugada invalida')
+    println "${jugada} ${jugada == generado ? 'empata con' : (ganadoras[jugada] == generado ? 'gana a' : 'pierde con')} ${generado}"
+} catch(ex) {
+    println ex.getMessage()
+}
+
+// version con clases
 abstract class JuegoPiedraPapelTijera implements Comparable {
 //    abstract int compareTo(Object o);
 }
